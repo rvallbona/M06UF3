@@ -1,0 +1,28 @@
+5 tipos pociones:
+- Salud
+- Ataque
+- Resistencia
+- Movilidad
+- Vision
+8 pociones:
+- Antidoto de veneno (Salud) (azucar, ojo de rana, uña humana)
+- Curacion (Salud) (azucar, berruga de ogro, hilo de lana)
+- Vision de tigre (Vision) (cera de oido, pelo de caballo, hilo de lana)
+- Rapidez (Movilidad) (pata de pollo, uña humana, hilo de lana)
+- Resistencia al fuego (Resistencia) (oro puro, hilo de lana, berruga de ogro)
+- Veneno rápido (Ataque) (cola de escorpion, hilo de lana, cera de oido)
+- Fuerza (Ataque) (cola de escorpion, uña humana, pelo de caballo)
+- Calor (Resistencia) (oro puro, veneno serpiente, cera de oido)
+12 ingredientes:
+- ojo de rana
+- pelo de caballo
+- pluma de pajaro
+- uña humana
+- oro puro
+- hilo de lana
+- berruga de ogro
+- pata de pollo
+- cera de oido
+- azucar
+- veneno serpiente
+- cola de escorpion
