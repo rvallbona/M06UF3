@@ -31,7 +31,7 @@ public class DBManager : MonoBehaviour
         while (dataReader.Read())
         {
             name_ingredients.Add(dataReader.GetString(1));
-            Debug.Log(name_ingredients);
+            //Debug.Log(name_ingredients);
         }
     }
 }
