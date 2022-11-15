@@ -7,10 +7,10 @@ public class ingredients : MonoBehaviour
 {
     public GameObject ingredient;
     [SerializeField]
-    private Sprite[] ingredientSprite;
+    public Sprite[] ingredientSprite;
     void Start()
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 1; i++)
         {
             GameObject newIngredient = Instantiate(ingredient, transform.position, transform.rotation) as GameObject;
             newIngredient.transform.SetParent(GameObject.FindGameObjectWithTag("ListaIngredientes").transform, false);
