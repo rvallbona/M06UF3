@@ -4,12 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Slot : MonoBehaviour, IDragHandler
+public class Slot : MonoBehaviour
 {
-    public void OnDrag(PointerEventData eventData)
-    {
-        GameObject dropped = eventData.pointerDrag;
-        Item item = dropped.GetComponent<Item>();
-        item.parentAfterDrag = transform;
-    }
+    public Item item;
+    public int slotIndex;
 }
