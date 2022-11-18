@@ -4,29 +4,32 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Item : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class Item : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [HideInInspector] public Transform parentAfterDrag;
-    Image ingredientImage;
-    public void Start()
+    //TMPro.TextMeshProUGUI ingredientText;
+    private RectTransform rectTransform;
+    public void Awake()
     {
-        GameObject ingredient = GameObject.FindGameObjectWithTag("Ingredient");
-        ingredientImage = ingredient.GetComponent<Image>();
+        rectTransform = GetComponent<RectTransform>();
+        //GameObject ingredient = GameObject.FindGameObjectWithTag("Ingredient");
+        //ingredientText = ingredient.GetComponent<TMPro.TextMeshProUGUI>();
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        parentAfterDrag = transform.parent;
-        transform.SetParent(transform.root);
-        transform.SetAsLastSibling();
-        ingredientImage.raycastTarget = false;
+        Debug.Log("Drag");
     }
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
+        Debug.Log("Dragging");
+        rectTransform.anchoredPosition += eventData.delta;
     }
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.SetParent(parentAfterDrag);
-        ingredientImage.raycastTarget = true;
+        Debug.Log("EndDrag");
+    }
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        Debug.Log("OnPointerDown");
     }
 }

@@ -7,6 +7,7 @@ TagManager:
   - ListaIngredientes
   - Ingredient
   - dbManager
+  - Slot
   layers:
   - Default
   - TransparentFX

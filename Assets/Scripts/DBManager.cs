@@ -29,21 +29,13 @@ public class DBManager : MonoBehaviour
     void IngredientList()
     {
         string ingredientsQuery = "SELECT* FROM ingredients";
-
         IDbCommand cmd = dbConnection.CreateCommand();
         cmd.CommandText = ingredientsQuery;
-
         IDataReader dataReader = cmd.ExecuteReader();
-
         while (dataReader.Read())
         {
             id_ingredients.Add(dataReader.GetInt32(0));
             name_ingredients.Add(dataReader.GetString(1));
-            //for (int i = 0; i < id_ingredients.Count; i++)
-            //{
-            //    Debug.Log(id_ingredients[i]);
-            //    Debug.Log(name_ingredients[i]);
-            //}
         }
     }
     public List<int> GetIngredientsIdList()
@@ -58,22 +50,14 @@ public class DBManager : MonoBehaviour
     void PotionsList()
     {
         string ingredientsQuery = "SELECT* FROM potions";
-
         IDbCommand cmd = dbConnection.CreateCommand();
         cmd.CommandText = ingredientsQuery;
-
         IDataReader dataReader = cmd.ExecuteReader();
-
         while (dataReader.Read())
         {
             id_potions.Add(dataReader.GetInt32(0));
             name_potions.Add(dataReader.GetString(1));
         }
-        //for (int i = 0; i < id_potions.Count; i++)
-        //{
-        //    Debug.Log(id_potions[i]);
-        //    Debug.Log(name_potions[i]);
-        //}
     }
     public List<int> GetPotionIdList()
     {
