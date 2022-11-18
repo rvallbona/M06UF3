@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class ingredients : MonoBehaviour
 {
     public GameObject ingredient;
-    [SerializeField]
-    public Sprite[] ingredientSprite;
+    DBManager dbManager;
+    List<string> ingredientsList;
     void Start()
     {
-        for (int i = 0; i < 1; i++)
+        dbManager = GameObject.FindGameObjectWithTag("dbManager").GetComponent<DBManager>();
+        ingredientsList = dbManager.GetIngredientsNameList();
+        for (int i = 0; i < ingredientsList.Count; i++)
         {
             GameObject newIngredient = Instantiate(ingredient, transform.position, transform.rotation) as GameObject;
             newIngredient.transform.SetParent(GameObject.FindGameObjectWithTag("ListaIngredientes").transform, false);
-            ingredient.GetComponent<Image>().sprite = ingredientSprite[i];
+
+            TMPro.TextMeshProUGUI ingredientName = newIngredient.GetComponent<TMPro.TextMeshProUGUI>();
+            ingredientName.text = ingredientsList[i];Debug.Log(ingredientsList[i]);
         }
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ListaIngredientes
   - Ingredient
+  - dbManager
   layers:
   - Default
   - TransparentFX
