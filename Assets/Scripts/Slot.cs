@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-
+using TMPro;
 public class Slot : MonoBehaviour, IDropHandler
 {
     GameObject slotedIngredient;
+    TextMeshProUGUI ingredient;
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("Sloted");
@@ -14,7 +15,8 @@ public class Slot : MonoBehaviour, IDropHandler
         {
             slotedIngredient = eventData.pointerDrag;
             eventData.pointerDrag.GetComponent<RectTransform>().position = this.GetComponent<RectTransform>().position;
-            Ingredient ingredient = slotedIngredient.GetComponent<Ingredient>();
+            ingredient = slotedIngredient.GetComponent<TextMeshProUGUI>();
+            int.TryParse(ingredient.ToString(), out int id);
         }
     }
 }

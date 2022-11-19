@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 public class Ingredient : MonoBehaviour
 {
     public GameObject ingredient;
@@ -8,7 +9,7 @@ public class Ingredient : MonoBehaviour
     List<string> nameIngredientsList;
     List<int> idIngredientsList;
 
-    List<Ingredient> ingredients;
+    List<ingredientFormat> ingredients;
     public struct ingredientFormat
     {
         public int id_ingredient;
@@ -24,11 +25,10 @@ public class Ingredient : MonoBehaviour
             GameObject newIngredient = Instantiate(ingredient, transform.position, transform.rotation) as GameObject;
             newIngredient.transform.SetParent(GameObject.FindGameObjectWithTag("ListaIngredientes").transform, false);
 
-            TMPro.TextMeshProUGUI ingredientName = newIngredient.GetComponent<TMPro.TextMeshProUGUI>();
+            TextMeshProUGUI ingredientName = newIngredient.GetComponent<TextMeshProUGUI>();
             ingredientFormat ingre = new ingredientFormat();
             ingre.id_ingredient = idIngredientsList[i];
             ingre.name_ingredient = nameIngredientsList[i];
-            Debug.Log(ingre);
             ingredientName.text = ingre.name_ingredient;
         }
     }
