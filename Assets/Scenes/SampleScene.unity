@@ -200,7 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 311790253}
   - component: {fileID: 311790255}
-  - component: {fileID: 311790254}
+  - component: {fileID: 311790256}
   m_Layer: 5
   m_Name: Ingredients
   m_TagString: ListaIngredientes
@@ -228,19 +228,6 @@ RectTransform:
   m_AnchoredPosition: {x: 150, y: 527}
   m_SizeDelta: {x: 300, y: 1050}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &311790254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311790252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d021f791fa045c45b007b79b88f1e92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredient: {fileID: 7480963258606411685, guid: cbac7ea8c26c1774199dacede0ae0327, type: 3}
 --- !u!114 &311790255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +252,19 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &311790256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311790252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d021f791fa045c45b007b79b88f1e92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredient: {fileID: 7480963258606411685, guid: cbac7ea8c26c1774199dacede0ae0327, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
