@@ -7,9 +7,13 @@ public class Ingredient : MonoBehaviour
     DBManager dbManager;
     List<string> nameIngredientsList;
     List<int> idIngredientsList;
-    int id_ingredient;
-    string name_ingredient;
+
     List<Ingredient> ingredients;
+    public struct ingredientFormat
+    {
+        public int id_ingredient;
+        public string name_ingredient;
+    }
     void Start()
     {
         dbManager = GameObject.FindGameObjectWithTag("dbManager").GetComponent<DBManager>();
@@ -21,12 +25,11 @@ public class Ingredient : MonoBehaviour
             newIngredient.transform.SetParent(GameObject.FindGameObjectWithTag("ListaIngredientes").transform, false);
 
             TMPro.TextMeshProUGUI ingredientName = newIngredient.GetComponent<TMPro.TextMeshProUGUI>();
-            ingredientName.text = idIngredientsList[i] + nameIngredientsList[i];
+            ingredientFormat ingre = new ingredientFormat();
+            ingre.id_ingredient = idIngredientsList[i];
+            ingre.name_ingredient = nameIngredientsList[i];
+            Debug.Log(ingre);
+            ingredientName.text = ingre.name_ingredient;
         }
-    }
-    public void SetIngredient(int id, string name)
-    {
-        id_ingredient = id;
-        name_ingredient = name;
     }
 }
