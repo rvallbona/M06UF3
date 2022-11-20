@@ -29,7 +29,7 @@ public class Ingredient : MonoBehaviour
             ingredientFormat ingre = new ingredientFormat();
             ingre.id_ingredient = idIngredientsList[i];
             ingre.name_ingredient = nameIngredientsList[i];
-            ingredientName.text = ingre.name_ingredient;
+            ingredientName.text = ingre.id_ingredient + "." + ingre.name_ingredient;
         }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using System;
+
 public class Slot : MonoBehaviour, IDropHandler
 {
     GameObject slotedIngredient;
@@ -16,7 +18,9 @@ public class Slot : MonoBehaviour, IDropHandler
             slotedIngredient = eventData.pointerDrag;
             eventData.pointerDrag.GetComponent<RectTransform>().position = this.GetComponent<RectTransform>().position;
             ingredient = slotedIngredient.GetComponent<TextMeshProUGUI>();
-            int.TryParse(ingredient.ToString(), out int id);
+            ingredient.text.ToString();
+            ingredient.text.Split('.');
+            Debug.Log(ingredient.text);
         }
     }
 }
