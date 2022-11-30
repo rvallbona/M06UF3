@@ -67,4 +67,19 @@ public class DBManager : MonoBehaviour
     {
         return name_potions;
     }
+    //Comprovaciones Ingredientes Pociones
+    public void ConfirmationIngredientsPotions(List<string> ids_ingredients)
+    {
+        for (int i = 0; i < ids_ingredients.Count; i++)
+        {
+            string ingredientsQuery = "SELECT * FROM ingredients WHERE id_ingredient = ";
+            ingredientsQuery = ingredientsQuery + ids_ingredients[i];
+            IDbCommand cmd = dbConnection.CreateCommand();
+            cmd.CommandText = ingredientsQuery;
+            IDataReader dataReader = cmd.ExecuteReader();
+        }
+
+        
+        
+    }
 }

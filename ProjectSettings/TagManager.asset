@@ -8,6 +8,7 @@ TagManager:
   - Ingredient
   - dbManager
   - Slot
+  - ListaPociones
   layers:
   - Default
   - TransparentFX
