@@ -12,6 +12,7 @@ public class Item : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDrag
     {
         rectTransform = GetComponent<RectTransform>();
     }
+    #region DragFuncions
     public void OnBeginDrag(PointerEventData eventData)
     {
         
@@ -28,4 +29,5 @@ public class Item : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDrag
     {
         
     }
+    #endregion
 }

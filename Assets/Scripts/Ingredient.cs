@@ -24,7 +24,6 @@ public class Ingredient : MonoBehaviour
         {
             GameObject newIngredient = Instantiate(ingredient, transform.position, transform.rotation) as GameObject;
             newIngredient.transform.SetParent(GameObject.FindGameObjectWithTag("ListaIngredientes").transform, false);
-
             TextMeshProUGUI ingredientName = newIngredient.GetComponent<TextMeshProUGUI>();
             ingredientFormat ingre = new ingredientFormat();
             ingre.id_ingredient = idIngredientsList[i];

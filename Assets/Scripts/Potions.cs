@@ -23,7 +23,7 @@ public class Potions : MonoBehaviour
         {
             GameObject newPotion = Instantiate(potion, transform.position, transform.rotation) as GameObject;
             newPotion.transform.SetParent(GameObject.FindGameObjectWithTag("ListaPociones").transform, false);
-
+            newPotion.SetActive(false);
             TextMeshProUGUI potiontName = newPotion.GetComponent<TextMeshProUGUI>();
             potionFormat poti = new potionFormat();
             poti.id_potion = idPotionsList[i];

@@ -10,10 +10,10 @@ public class Slot : MonoBehaviour, IDropHandler
 {
     GameObject slotedIngredient;
     TextMeshProUGUI ingredient;
-    public string[] ingredients_ids;
-    public string idIngredient;
-    public List<string> idsIngredientsList;
-    DBManager dbManager;
+    [HideInInspector] public string[] ingredients_ids;
+    [HideInInspector] public string idIngredient;
+    [HideInInspector] public List<string> idsIngredientsList;
+    [SerializeField] DBManager dbManager;
     private int indexPotionIngredients;
     public void OnDrop(PointerEventData eventData)
     {
@@ -25,13 +25,12 @@ public class Slot : MonoBehaviour, IDropHandler
             ingredient = slotedIngredient.GetComponent<TextMeshProUGUI>();
             ingredients_ids = ingredient.text.ToString().Split(".");
             idIngredient = ingredients_ids[0];
-            Debug.Log(idIngredient);
             idsIngredientsList.Add(idIngredient);
             indexPotionIngredients += 1;
         }
         if (indexPotionIngredients == 3)
         {
-            dbManager.ConfirmationIngredientsPotions(idsIngredientsList);
+            dbManager.CheckRecipe(idsIngredientsList);
         }
     }
 }
