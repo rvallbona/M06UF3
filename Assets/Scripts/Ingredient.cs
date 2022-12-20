@@ -8,7 +8,6 @@ public class Ingredient : MonoBehaviour
     DBManager dbManager;
     List<string> nameIngredientsList;
     List<int> idIngredientsList;
-
     List<ingredientFormat> ingredients;
     public struct ingredientFormat
     {

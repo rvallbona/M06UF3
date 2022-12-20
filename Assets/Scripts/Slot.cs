@@ -14,6 +14,7 @@ public class Slot : MonoBehaviour, IDropHandler
     [HideInInspector] public string idIngredient;
     [HideInInspector] public List<string> idsIngredientsList;
     [SerializeField] DBManager dbManager;
+    [SerializeField] Potions potion;
     private int indexPotionIngredients;
     [HideInInspector] public int id_potion_created;
     private void Start()
@@ -36,7 +37,7 @@ public class Slot : MonoBehaviour, IDropHandler
         if (indexPotionIngredients == 3)
         {
             id_potion_created = dbManager.CheckRecipe(idsIngredientsList);
-            Debug.Log("IDCREATED: "+ id_potion_created);
+            potion.SpawnPotion();
         }
     }
 }

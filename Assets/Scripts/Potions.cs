@@ -9,18 +9,14 @@ public class Potions : MonoBehaviour
     List<string> namePotionsList;
     List<int> idPotionsList;
     List<potionFormat> potions;
-    potionFormat poti = new potionFormat();
     [SerializeField] Slot slot;
-    private int id_potionToSpawn;
     public struct potionFormat
     {
         public int id_potion;
         public string name_potion;
     }
-    void Update()
+    void Start()
     {
-        id_potionToSpawn = slot.id_potion_created;
-        dbManager.PotionsList(id_potionToSpawn);
         #region antiguo
         dbManager = GameObject.FindGameObjectWithTag("dbManager").GetComponent<DBManager>();
         idPotionsList = dbManager.GetPotionIdList();
@@ -29,13 +25,29 @@ public class Potions : MonoBehaviour
         {
             GameObject newPotion = Instantiate(potion, transform.position, transform.rotation) as GameObject;
             newPotion.transform.SetParent(GameObject.FindGameObjectWithTag("ListaPociones").transform, false);
-            newPotion.SetActive(false);
             TextMeshProUGUI potiontName = newPotion.GetComponent<TextMeshProUGUI>();
+            potionFormat poti = new potionFormat();
             poti.id_potion = idPotionsList[i];
             poti.name_potion = namePotionsList[i];
             potiontName.text = poti.id_potion + "." + poti.name_potion;
         }
         #endregion
-
+    }
+    public void SpawnPotion()
+    {
+        for (int i = 0; i < idPotionsList.Count; i++)
+        {
+            if (slot.id_potion_created == idPotionsList[i])
+            {
+                GameObject newPotion = Instantiate(potion, transform.position, transform.rotation) as GameObject;
+                newPotion.transform.SetParent(GameObject.FindGameObjectWithTag("ListaResult").transform, false);
+                TextMeshProUGUI potiontName = newPotion.GetComponent<TextMeshProUGUI>();
+                potionFormat poti = new potionFormat();
+                poti.id_potion = idPotionsList[i];
+                poti.name_potion = namePotionsList[i];
+                potiontName.text = poti.id_potion + "." + poti.name_potion;
+            }
+            //Debug.Log(idPotionsList[i] + namePotionsList[i]);
+        }
     }
 }

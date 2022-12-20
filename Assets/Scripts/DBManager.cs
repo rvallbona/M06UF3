@@ -25,6 +25,7 @@ public class DBManager : MonoBehaviour
         #region Functions
         OpenDatabase();
         IngredientList();
+        PotionsList();
         #endregion
     }
     #region DB
@@ -60,22 +61,9 @@ public class DBManager : MonoBehaviour
     }
     #endregion
     #region Potions
-    //void PotionsList()
-    //{
-    //    string ingredientsQuery = "SELECT* FROM potions";
-    //    IDbCommand cmd = dbConnection.CreateCommand();
-    //    cmd.CommandText = ingredientsQuery;
-    //    IDataReader dataReader = cmd.ExecuteReader();
-    //    while (dataReader.Read())
-    //    {
-    //        id_potions.Add(dataReader.GetInt32(0));
-    //        name_potions.Add(dataReader.GetString(1));
-    //    }
-    //}
-    public void PotionsList(int id_potion)
+    void PotionsList()
     {
-        string ingredientsQuery = "SELECT * FROM potions WHERE id_potion = ";
-        ingredientsQuery = ingredientsQuery + id_potion;
+        string ingredientsQuery = "SELECT* FROM potions";
         IDbCommand cmd = dbConnection.CreateCommand();
         cmd.CommandText = ingredientsQuery;
         IDataReader dataReader = cmd.ExecuteReader();
