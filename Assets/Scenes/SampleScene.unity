@@ -188,7 +188,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &311790252
 GameObject:
@@ -482,7 +482,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &569948893
 GameObject:
@@ -539,6 +539,7 @@ MonoBehaviour:
   idIngredient: 
   idsIngredientsList: []
   dbManager: {fileID: 2045331860}
+  id_potion_created: 0
 --- !u!114 &569948896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -891,7 +892,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1182786685
 GameObject:
@@ -989,7 +990,7 @@ RectTransform:
   - {fileID: 1303857804}
   - {fileID: 1477981569}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1454,6 +1455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potion: {fileID: 9100488338292330422, guid: 80c5b6fb7a738a54f9a5989fa4066bc0, type: 3}
+  slot: {fileID: 569948895}
 --- !u!114 &1615750074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1575,7 +1577,7 @@ RectTransform:
   - {fileID: 1615750072}
   - {fileID: 1228006533}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1617,6 +1619,7 @@ MonoBehaviour:
   name_potions: []
   id_potion_created: 0
   ListaPociones: {fileID: 1615750071}
+  scriptPotions: {fileID: 0}
 --- !u!4 &2045331861
 Transform:
   m_ObjectHideFlags: 0
@@ -1630,5 +1633,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

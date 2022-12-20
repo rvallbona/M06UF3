@@ -18,16 +18,14 @@ public class DBManager : MonoBehaviour
     [HideInInspector] public int id_potion_created;
     public GameObject ListaPociones;
 
-    [SerializeField]Potions scriptPotions;
+    [SerializeField] Potions scriptPotions;
     #endregion
     private void Awake()
     {
         #region Functions
         OpenDatabase();
         IngredientList();
-        PotionsList();
         #endregion
-        Pocion();
     }
     #region DB
     private void OpenDatabase()
@@ -62,9 +60,22 @@ public class DBManager : MonoBehaviour
     }
     #endregion
     #region Potions
-    void PotionsList()
+    //void PotionsList()
+    //{
+    //    string ingredientsQuery = "SELECT* FROM potions";
+    //    IDbCommand cmd = dbConnection.CreateCommand();
+    //    cmd.CommandText = ingredientsQuery;
+    //    IDataReader dataReader = cmd.ExecuteReader();
+    //    while (dataReader.Read())
+    //    {
+    //        id_potions.Add(dataReader.GetInt32(0));
+    //        name_potions.Add(dataReader.GetString(1));
+    //    }
+    //}
+    public void PotionsList(int id_potion)
     {
-        string ingredientsQuery = "SELECT* FROM potions";
+        string ingredientsQuery = "SELECT * FROM potions WHERE id_potion = ";
+        ingredientsQuery = ingredientsQuery + id_potion;
         IDbCommand cmd = dbConnection.CreateCommand();
         cmd.CommandText = ingredientsQuery;
         IDataReader dataReader = cmd.ExecuteReader();
@@ -87,7 +98,7 @@ public class DBManager : MonoBehaviour
     #endregion
     #region CheckRecipe
     //Comprovaciones Ingredientes Pociones
-    public void CheckRecipe(List<string> ids_ingredients)
+    public int CheckRecipe(List<string> ids_ingredients)
     {
         for (int i = 0; i < ids_ingredients.Count; i++)
         {
@@ -101,19 +112,7 @@ public class DBManager : MonoBehaviour
                 id_potion_created = dataReader.GetInt32(0);
             }
         }
-        Debug.Log(id_potion_created);
-        scriptPotions.InstantiatePotions();
+        return id_potion_created;
     }
     #endregion
-    void Pocion()
-    {
-        for (int i = 0; i < id_potions.Count; i++)
-        {
-            if (id_potion_created == id_potions[i])
-            {
-                Debug.Log("Encontrada");
-                GameObject newPotion = Instantiate(ListaPociones, transform.position, transform.rotation) as GameObject;
-            }
-        }
-    }
 }
