@@ -17,6 +17,8 @@ public class DBManager : MonoBehaviour
     [HideInInspector] public List<string> name_potions = new List<string>();
     [HideInInspector] public int id_potion_created;
     public GameObject ListaPociones;
+
+    [SerializeField]Potions scriptPotions;
     #endregion
     private void Awake()
     {
@@ -100,6 +102,7 @@ public class DBManager : MonoBehaviour
             }
         }
         Debug.Log(id_potion_created);
+        scriptPotions.InstantiatePotions();
     }
     #endregion
     void Pocion()
