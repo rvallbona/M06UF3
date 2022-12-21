@@ -38,6 +38,7 @@ public class Slot : MonoBehaviour, IDropHandler
         {
             id_potion_created = dbManager.CheckRecipe(idsIngredientsList);
             potion.SpawnPotion();
+            indexPotionIngredients = 0;
         }
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - dbManager
   - Slot
   - ListaPociones
+  - ListaResult
   layers:
   - Default
   - TransparentFX
