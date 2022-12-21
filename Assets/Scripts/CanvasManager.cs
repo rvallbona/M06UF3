@@ -22,13 +22,4 @@ public class CanvasManager : MonoBehaviour
         canvasRecipies.SetActive(false);
         canvasInGame.SetActive(true);
     }
-
-    //public void BackGame()
-    //{
-    //    canvasPauseMenu.SetActive(false);
-    //    audioMenu.Stop();
-    //    audioInGame.Play();
-    //    Time.timeScale = 1;
-    //    Cursor.lockState = CursorLockMode.Locked;
-    //}
 }

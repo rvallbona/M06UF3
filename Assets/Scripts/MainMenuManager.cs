@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] GameObject canvasMainMenu, canvasInGame, canvasOptions, canvasCredits;
+    [SerializeField] GameObject canvasLoggin, canvasMainMenu, canvasInGame, canvasOptions, canvasCredits;
     public void ChangeInGameCanvas()
     {
         canvasInGame.SetActive(true);
@@ -28,6 +28,11 @@ public class MainMenuManager : MonoBehaviour
     public void BackCredits()
     {
         canvasCredits.SetActive(false);
+        canvasMainMenu.SetActive(true);
+    }
+    public void Logged()
+    {
+        canvasLoggin.SetActive(false);
         canvasMainMenu.SetActive(true);
     }
     public void ExitGame()
