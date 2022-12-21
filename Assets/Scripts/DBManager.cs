@@ -8,6 +8,10 @@ public class DBManager : MonoBehaviour
     [Header("DB")]
     IDbConnection dbConnection;
 
+    [Header("Login")]
+    [HideInInspector] public List<int> id_user = new List<int>();
+    [HideInInspector] public List<string> name_user = new List<string>();
+
     [Header("Ingredients")]
     [HideInInspector] public List<int> id_ingredients = new List<int>();
     [HideInInspector] public List<string> name_ingredients = new List<string>();
@@ -24,6 +28,7 @@ public class DBManager : MonoBehaviour
     {
         #region Functions
         OpenDatabase();
+        Login();
         IngredientList();
         PotionsList();
         #endregion
@@ -34,6 +39,28 @@ public class DBManager : MonoBehaviour
         string dbUri = "URI=file:alchENTImist.db";
         dbConnection = new SqliteConnection(dbUri);
         dbConnection.Open();
+    }
+    #endregion
+    #region Login
+    void Login()
+    {
+        string ingredientsQuery = "SELECT id_user, name FROM users";
+        IDbCommand cmd = dbConnection.CreateCommand();
+        cmd.CommandText = ingredientsQuery;
+        IDataReader dataReader = cmd.ExecuteReader();
+        while (dataReader.Read())
+        {
+            id_user.Add(dataReader.GetInt32(0));
+            name_user.Add(dataReader.GetString(1));
+        }
+    }
+    public List<int> GetLoginIdList()
+    {
+        return id_user;
+    }
+    public List<string> GetLoginNameList()
+    {
+        return name_user;
     }
     #endregion
     #region Ingredients
