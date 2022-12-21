@@ -22,6 +22,8 @@ public class DBManager : MonoBehaviour
     [HideInInspector] public int id_potion_created;
     public GameObject ListaPociones;
 
+    [Header("Recipies")]
+    [HideInInspector] public List<int> id_potion_ingredient = new List<int>(), id_potion = new List<int>(), id_ingredient = new List<int>();
     [SerializeField] Potions scriptPotions;
     #endregion
     private void Awake()
@@ -31,6 +33,7 @@ public class DBManager : MonoBehaviour
         Login();
         IngredientList();
         PotionsList();
+        Recipies();
         #endregion
     }
     #region DB
@@ -54,6 +57,8 @@ public class DBManager : MonoBehaviour
             name_user.Add(dataReader.GetString(1));
         }
     }
+    #endregion
+    #region GetLoginFunctions
     public List<int> GetLoginIdList()
     {
         return id_user;
@@ -107,6 +112,35 @@ public class DBManager : MonoBehaviour
         return id_potions;
     }
     public List<string> GetPotionsNameList()
+    {
+        return name_potions;
+    }
+    #endregion
+    #region Recipies
+    void Recipies()
+    {
+        string ingredientsQuery = "SELECT id_potion_ingredient, id_potion, id_ingredient FROM potion_ingredients";
+        IDbCommand cmd = dbConnection.CreateCommand();
+        cmd.CommandText = ingredientsQuery;
+        IDataReader dataReader = cmd.ExecuteReader();
+        while (dataReader.Read())
+        {
+            id_potion_ingredient.Add(dataReader.GetInt32(0));
+            id_potion.Add(dataReader.GetInt32(0));
+            id_ingredient.Add(dataReader.GetInt32(0));
+        }
+    }
+    #endregion
+    #region GetRecipiesFuncions
+    public List<int> GetRecipiesIdList()
+    {
+        return id_potion_ingredient;
+    }
+    public List<int> GetRecipiesIdPotionList()
+    {
+        return id_potions;
+    }
+    public List<string> GetRecipiesNameList()
     {
         return name_potions;
     }

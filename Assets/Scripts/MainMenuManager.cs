@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] GameObject canvasLoggin, canvasMainMenu, canvasInGame, canvasOptions, canvasCredits;
+    [SerializeField] GameObject canvasLoggin, canvasMainMenu, canvasInGame, canvasOptions, canvasCredits, canvasRecipies;
     public void ChangeInGameCanvas()
     {
         canvasInGame.SetActive(true);
@@ -19,6 +19,17 @@ public class MainMenuManager : MonoBehaviour
     {
         canvasCredits.SetActive(true);
         canvasMainMenu.SetActive(false);
+    }
+
+    public void ChangeRecipiesCanvas()
+    {
+        canvasRecipies.SetActive(true);
+        canvasInGame.SetActive(false);
+    }
+    public void BackRecipies()
+    {
+        canvasRecipies.SetActive(false);
+        canvasInGame.SetActive(true);
     }
     public void BackOptions()
     {

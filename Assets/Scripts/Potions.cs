@@ -8,7 +8,6 @@ public class Potions : MonoBehaviour
     DBManager dbManager;
     List<string> namePotionsList;
     List<int> idPotionsList;
-    List<potionFormat> potions;
     [SerializeField] Slot slot;
     public struct potionFormat
     {
@@ -17,12 +16,10 @@ public class Potions : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log("Start del Potions");
         #region antiguo
         dbManager = GameObject.FindGameObjectWithTag("dbManager").GetComponent<DBManager>();
         idPotionsList = dbManager.GetPotionIdList();
         namePotionsList = dbManager.GetPotionsNameList();
-        Debug.Log(namePotionsList.Count);
         for (int i = 0; i < namePotionsList.Count; i++)
         {
             GameObject newPotion = Instantiate(potion, transform.position, transform.rotation) as GameObject;
@@ -49,7 +46,6 @@ public class Potions : MonoBehaviour
                 poti.name_potion = namePotionsList[i];
                 potiontName.text = poti.id_potion + "." + poti.name_potion;
             }
-            //Debug.Log(idPotionsList[i] + namePotionsList[i]);
         }
     }
 }

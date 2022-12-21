@@ -10,6 +10,8 @@ TagManager:
   - Slot
   - ListaPociones
   - ListaResult
+  - Recipie1
+  - Recipie2
   layers:
   - Default
   - TransparentFX
