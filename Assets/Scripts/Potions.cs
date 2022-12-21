@@ -17,10 +17,12 @@ public class Potions : MonoBehaviour
     }
     void Start()
     {
+        Debug.Log("Start del Potions");
         #region antiguo
         dbManager = GameObject.FindGameObjectWithTag("dbManager").GetComponent<DBManager>();
         idPotionsList = dbManager.GetPotionIdList();
         namePotionsList = dbManager.GetPotionsNameList();
+        Debug.Log(namePotionsList.Count);
         for (int i = 0; i < namePotionsList.Count; i++)
         {
             GameObject newPotion = Instantiate(potion, transform.position, transform.rotation) as GameObject;
