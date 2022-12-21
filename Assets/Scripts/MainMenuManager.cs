@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] GameObject canvasMainMenu, canvasOptions, canvasCredits;
-    public void ChangeScene(int nscene)
+    [SerializeField] GameObject canvasMainMenu, canvasInGame, canvasOptions, canvasCredits;
+    public void ChangeInGameCanvas()
     {
-        SceneManager.LoadScene(nscene);
+        canvasInGame.SetActive(true);
+        canvasMainMenu.SetActive(false);
     }
     public void ChangeOptionCanvas()
     {
