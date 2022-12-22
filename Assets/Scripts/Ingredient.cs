@@ -4,8 +4,12 @@ using UnityEngine;
 using TMPro;
 public class Ingredient : MonoBehaviour
 {
-    public GameObject ingredient;
+    #region Variables
+    [Header("DB")]
     DBManager dbManager;
+
+    [Header("Ingredients")]
+    public GameObject ingredient;
     List<string> nameIngredientsList;
     List<int> idIngredientsList;
     public struct ingredientFormat
@@ -13,6 +17,7 @@ public class Ingredient : MonoBehaviour
         public int id_ingredient;
         public string name_ingredient;
     }
+    #endregion
     void Start()
     {
         dbManager = GameObject.FindGameObjectWithTag("dbManager").GetComponent<DBManager>();

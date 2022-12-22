@@ -5,11 +5,16 @@ using UnityEngine;
 
 public class Recipies : MonoBehaviour
 {
+    #region Variables
+    [Header("DB")]
+    DBManager dbManager;
+
+    [Header("Potions/Ingredients")]
     public GameObject potion;
     public GameObject ingredient;
-    DBManager dbManager;
     List<int> idPotionsList, idIngredientsList, idPotionsIngredients, idPotions;
     List<string> namePotionsList, nameIngredientsList, idIngredients;
+
     #region Structs
     public struct potionFormat
     {
@@ -22,8 +27,10 @@ public class Recipies : MonoBehaviour
         public string name_ingredient;
     }
     #endregion
+    #endregion
     private void Start()
     {
+        #region DB Management
         dbManager = GameObject.FindGameObjectWithTag("dbManager").GetComponent<DBManager>();
         idPotionsList = dbManager.GetPotionIdList();
         namePotionsList = dbManager.GetPotionsNameList();
@@ -32,7 +39,8 @@ public class Recipies : MonoBehaviour
         idPotionsIngredients = dbManager.GetRecipiesIdList();
         idPotions = dbManager.GetRecipiesIdPotionList();
         idIngredients = dbManager.GetRecipiesNameList();
-        //Potions
+        #endregion
+        #region Potions
         for (int i = 0; i < namePotionsList.Count; i++)
         {
             GameObject newPotion = Instantiate(potion, transform.position, transform.rotation) as GameObject;
@@ -43,7 +51,8 @@ public class Recipies : MonoBehaviour
             poti.name_potion = namePotionsList[i];
             potiontName.text = poti.id_potion + "." + poti.name_potion;
         }
-        //Ingredients
+        #endregion
+        #region Ingredients
         for (int i = 0; i < nameIngredientsList.Count; i++)
         {
             GameObject newIngredient = Instantiate(ingredient, transform.position, transform.rotation) as GameObject;
@@ -54,5 +63,6 @@ public class Recipies : MonoBehaviour
             ingre.name_ingredient = nameIngredientsList[i];
             ingredientName.text = ingre.id_ingredient + "." + ingre.name_ingredient;
         }
+        #endregion
     }
 }

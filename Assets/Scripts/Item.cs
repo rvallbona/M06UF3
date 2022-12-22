@@ -6,8 +6,11 @@ using UnityEngine.EventSystems;
 
 public class Item : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    #region Variables
+    [Header("Drag")]
     [HideInInspector] public Transform parentAfterDrag;
     private RectTransform rectTransform;
+    #endregion
     public void Awake()
     {
         rectTransform = GetComponent<RectTransform>();

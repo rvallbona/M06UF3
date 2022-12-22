@@ -8,15 +8,22 @@ using System;
 
 public class Slot : MonoBehaviour, IDropHandler
 {
+    #region Variables
+    [Header("DB")]
+    [SerializeField] DBManager dbManager;
+
+    [Header("Ingredients")]
     GameObject slotedIngredient;
     TextMeshProUGUI ingredient;
     [HideInInspector] public string[] ingredients_ids;
     [HideInInspector] public string idIngredient;
     [HideInInspector] public List<string> idsIngredientsList;
-    [SerializeField] DBManager dbManager;
+
+    [Header("Potions")]
     [SerializeField] Potions potion;
     private int indexPotionIngredients;
     [HideInInspector] public int id_potion_created;
+    #endregion
     private void Start()
     {
         id_potion_created = 20;

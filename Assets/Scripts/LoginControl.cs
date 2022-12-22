@@ -5,12 +5,17 @@ using UnityEngine.UI;
 using TMPro;
 public class LoginControl : MonoBehaviour
 {
+    #region Variables
+    [Header("DB")]
+    DBManager dbManager;
+
+    [Header("Loggin")]
     public TMP_InputField usernameInput;
     private string user_name;
-    DBManager dbManager;
-    [SerializeField]MainMenuManager menuManager;
-    List<string> namePotionsList;
+    List<string> nameUsersList;
 
+    [SerializeField] MainMenuManager menuManager;
+    #endregion
     void Start()
     {
         user_name = usernameInput.text;
@@ -20,18 +25,14 @@ public class LoginControl : MonoBehaviour
     void Update()
     {
         user_name = usernameInput.text;
-        namePotionsList = dbManager.GetLoginNameList();
-        for (int i = 0; i < namePotionsList.Count; i++)
+        nameUsersList = dbManager.GetLoginNameList();
+        for (int i = 0; i < nameUsersList.Count; i++)
         {
-            if (namePotionsList[i] == user_name)
+            if (nameUsersList[i] == user_name)
             {
                 menuManager.Logged();
                 Destroy(gameObject);
             }
         }
-    }
-    public void SaveUsername(string newName)
-    {
-
     }
 }

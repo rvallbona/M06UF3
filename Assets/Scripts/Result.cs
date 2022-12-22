@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class Potions : MonoBehaviour
+public class Result : MonoBehaviour
 {
     #region Variables
     [Header("DB")]
@@ -28,7 +28,9 @@ public class Potions : MonoBehaviour
         {
             GameObject newPotion = Instantiate(potion, transform.position, transform.rotation) as GameObject;
             newPotion.transform.SetParent(GameObject.FindGameObjectWithTag("ListaPociones").transform, false);
+            newPotion.SetActive(false);
             TextMeshProUGUI potiontName = newPotion.GetComponent<TextMeshProUGUI>();
+
             potionFormat poti = new potionFormat();
             poti.id_potion = idPotionsList[i];
             poti.name_potion = namePotionsList[i];
