@@ -13,6 +13,8 @@ public class Potions : MonoBehaviour
     List<string> namePotionsList;
     List<int> idPotionsList;
     [SerializeField] Slot slot;
+
+    [HideInInspector] public int indexWin;
     public struct potionFormat
     {
         public int id_potion;
@@ -21,6 +23,7 @@ public class Potions : MonoBehaviour
     #endregion
     void Start()
     {
+        indexWin = 0;
         dbManager = GameObject.FindGameObjectWithTag("dbManager").GetComponent<DBManager>();
         idPotionsList = dbManager.GetPotionIdList();
         namePotionsList = dbManager.GetPotionsNameList();
@@ -37,6 +40,7 @@ public class Potions : MonoBehaviour
     }
     public void SpawnPotion()
     {
+        indexWin += 1;
         for (int i = 0; i < idPotionsList.Count; i++)
         {
             if (slot.id_potion_created == idPotionsList[i])
